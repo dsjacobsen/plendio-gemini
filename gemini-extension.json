@@ -1,0 +1,11 @@
+{
+  "name": "plendio",
+  "version": "1.0.0",
+  "description": "Price comparison and product search for Denmark, Sweden, Germany and Norway: find products, compare shop prices, see who ships to you. Read-only, no login.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "plendio": {
+      "httpUrl": "https://plendio.com/mcp"
+    }
+  }
+}
