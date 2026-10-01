@@ -12,12 +12,12 @@ The extension is one connection to a hosted server; there is nothing to build or
 gemini extensions install https://github.com/dsjacobsen/plendio-gemini
 ```
 
-Restart the Gemini CLI and run `/mcp` to check that the `plendio` server is connected with four tools.
+Restart the Gemini CLI and run `/mcp` to check that the `plendio` server is connected with eight tools.
 No sign-in, API key or settings are needed.
 
 ## Tools
 
-All four tools are read-only and only read Plendio's own product catalogue.
+The first four tools are read-only and only read Plendio's own product catalogue. The wishlist tools make anonymous wishlists (no sign-in, no personal data; a list nobody opens or edits for 90 days is deleted).
 
 | Tool | What it does |
 |---|---|
@@ -25,6 +25,10 @@ All four tools are read-only and only read Plendio's own product catalogue.
 | `get_product` | Specifications, one offer per shop and price history of one product |
 | `compare_prices` | The shops selling one product, cheapest first including shipping |
 | `list_categories` | Product categories with localized names and product counts |
+| `create_wishlist` | Makes a shareable wishlist; returns a read-only share link and a private edit link |
+| `add_to_wishlist` | Adds products to a wishlist, given its edit link |
+| `remove_from_wishlist` | Removes products from a wishlist, given its edit link |
+| `get_wishlist` | Reads a wishlist from its share link (read-only) |
 
 Example prompts:
 
@@ -53,6 +57,20 @@ https://plendio.dk/privacy.
 ## Support
 
 hello@plendio.com. Plendio is operated by PriceBot ApS, Denmark.
+
+## For the repository owner
+
+The Gemini CLI extension gallery (https://geminicli.com/extensions/browse/) lists public GitHub repositories
+automatically; no submission is needed. Requirements
+(docs/extensions/releasing.md in the google-gemini/gemini-cli repository):
+
+- the repository is public;
+- **the GitHub topic `gemini-cli-extension` is set** (repository page, About, settings, Topics);
+- `gemini-extension.json` is in the root of the repository.
+
+The gallery crawls tagged repositories daily and lists the extension once it passes validation. To ship a
+change, edit `gemini-extension.json` (raise `version`) and commit; users get it with
+`gemini extensions update plendio`.
 
 ## Licence
 
